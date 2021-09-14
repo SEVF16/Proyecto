@@ -7,16 +7,16 @@
 <ion-content [fullscreen]="true">
   <mat-card class="cardpadding">
     <mat-card-header>
-      <div mat-card-avatar></div>
-      <mat-card-title id="palabra">Iniciar Sesion </mat-card-title>
+      <!--<div mat-card-avatar></div> -->
+      <mat-card-title id="palabra">Iniciar Sesion</mat-card-title>
     </mat-card-header>
-    <div mat-card-image></div>
+     <!--<div mat-card-image></div>-->
     <mat-card-content>
       <ion-row>
         <ion-col size="12">
           <ion-item>
             <ion-label position="floating" >Usuario</ion-label>
-            <ion-input type="text" placeholder="Nombre De Usuario"></ion-input>
+            <ion-input type="text" [(ngModel)]="user.userName" placeholder="Nombre De Usuario"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -24,20 +24,20 @@
         <ion-col size="12">
           <ion-item>
             <ion-label position="floating" >Contraseña</ion-label>
-            <ion-input type="password" placeholder="Contraseña"></ion-input>
+            <ion-input type="password" [(ngModel)]="user.password" placeholder="Contraseña"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
-    </mat-card-content>
-    <mat-card-actions >
-      <button mat-flat-button  id="yellow">Ingresar</button>
-    </mat-card-actions>
+    </mat-card-content>     
   </mat-card>
-  
+  <ion-row>
+    <ion-col>      
+      <button mat-flat-button id="yellow" (click)="ingresar()">Ingresar</button>      
+    </ion-col>
+  </ion-row>  
 </ion-content>
-
-<ion-footer>
+<ion-footer [fullscreen]="true">
   <ion-toolbar>
-      <img class="img" src="https://lh3.googleusercontent.com/proxy/0OsA-LeBNjw1bKaq-P1w1HEzT2GZ6FtxsZwE35m4wiDCiIPPlum7tTsXoWIjHmz4bxjF5lHEmwZynAVx6oBhGvC3JmzSkLIHgP1QrQ" alt="">
+      <img class="img" src="http://www2.duoc.cl/proveedores/img/acreditado_1.jpg" alt="">
   </ion-toolbar>
 </ion-footer>
