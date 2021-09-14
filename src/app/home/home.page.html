@@ -24,7 +24,7 @@
         <ion-col size="12">
           <ion-item>
             <ion-label position="floating" >Contraseña</ion-label>
-            <ion-input type="password" [(ngModel)]="user.password" placeholder="Contraseña"></ion-input>
+            <ion-input type="password" [(ngModel)]="user.password" placeholder="Contraseña"></ion-input>            
           </ion-item>
         </ion-col>
       </ion-row>
@@ -34,7 +34,12 @@
     <ion-col>      
       <button mat-flat-button id="yellow" (click)="ingresar()">Ingresar</button>      
     </ion-col>
-  </ion-row>  
+  </ion-row>
+  <ion-row class="ion-justify-content-end">
+    <ion-col size="12">      
+      <a mat-stroked-button color="primary" href="https://www.google.com/" target="_blank">¿Olivaste tu contraseña?</a>   
+    </ion-col>
+  </ion-row>    
 </ion-content>
 <ion-footer [fullscreen]="true">
   <ion-toolbar>

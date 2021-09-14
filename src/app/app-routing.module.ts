@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'landing',
     loadChildren: () => import('./landing/landing.module').then( m => m.LandingPageModule)
   },
+  {
+    path: 'pass-reset',
+    loadChildren: () => import('./pass-reset/pass-reset.module').then( m => m.PassResetPageModule)
+  },
 
 ];
 
