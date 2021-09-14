@@ -8,6 +8,47 @@
   transform: translateY(-50%);
 }
 
+.cardpadding{
+    margin-top: 125px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: white;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    border: 3px solid rgba(0, 0, 111, 0.8);
+} 
+
+#palabra{
+  color: black;
+  padding-left: 20px;
+
+}
+
+#yellow{
+  height: auto;
+  width: 280px;
+  color: white;
+  background: rgb(255, 165, 0);
+}
+
+.img{
+  padding-top: 5px;
+  margin-left: 58px;
+  height: auto;
+  width: 200px;
+}
+
+.img2{
+  filter: brightness(1.1);
+  mix-blend-mode: multiply;
+  padding-top: 5px;
+  margin-left: 58px;
+  height: auto;
+  width: 200px;
+  background: white;
+}
+
 #container strong {
   font-size: 20px;
   line-height: 26px;
