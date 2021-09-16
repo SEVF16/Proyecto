@@ -7,13 +7,19 @@ import { IonicModule } from '@ionic/angular';
 import { PassResetPageRoutingModule } from './pass-reset-routing.module';
 
 import { PassResetPage } from './pass-reset.page';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PassResetPageRoutingModule
+    PassResetPageRoutingModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatCardModule
   ],
   declarations: [PassResetPage]
 })

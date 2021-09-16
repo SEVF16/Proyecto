@@ -18,7 +18,9 @@ export class HomePage {
 
   ngOnInit() {
   }
-
+  recuperar(){
+    this.router.navigate(['/pass-reset']);
+  }
   ingresar() {
     let navigationExtras: NavigationExtras ={
       state:{user: this.user.userName}

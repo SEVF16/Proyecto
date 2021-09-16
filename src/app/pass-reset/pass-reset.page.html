@@ -4,13 +4,29 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content [fullscreen]="true">
+  <mat-card class="cardpadding"> 
+    <mat-card-header>
+      <mat-card-title id="palabra">Recuperar Contraseña</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating" >Usuario</ion-label>
+            <ion-input type="text" [(ngModel)]="user.userName" placeholder="Nombre De Usuario"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </mat-card-content>  
+    <mat-card-actions>
+      <button mat-flat-button id="yellow" (click)="recuperar()">Recuperar Contraseña</button>     
+    </mat-card-actions>
+  </mat-card>
 </ion-content>
 
-
-<ion-footer>
+<ion-footer id="footer">
   <ion-toolbar>
-      <img class="img" src="http://www2.duoc.cl/proveedores/img/acreditado_1.jpg" alt="">
-  </ion-toolbar>
+    <img class="img" src="http://www2.duoc.cl/proveedores/img/acreditado_1.jpg" alt="">
+</ion-toolbar>
 </ion-footer>
