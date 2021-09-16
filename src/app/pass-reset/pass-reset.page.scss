@@ -1,0 +1,71 @@
+#container {
+    text-align: center;
+  
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+.cardpadding{
+  margin-top: 5%;
+  margin-right: 2%;
+  margin-left: 2%;
+  background: white;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  border: 3px solid rgba(0, 0, 111, 0.8);
+} 
+  
+#palabra{
+  color: black;
+  padding-left: 20px;
+
+}
+
+#yellow{
+  margin-top: 5%;
+  height: auto;
+  width: 100%;  
+  color: white;
+  background: rgb(255, 165, 0);
+}
+
+.img{
+  padding-top: 50px;  
+  padding-left: 40%; 
+  padding-right: 40%;
+  height: 80%;
+  
+  
+}
+
+.img2{
+  filter: brightness(1.1);
+  mix-blend-mode: multiply;
+  padding-top: 5px;
+  margin-left: 58px;
+  height: auto;
+  width: 200px;
+  background: white;
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+} 
+
