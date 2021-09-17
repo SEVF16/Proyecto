@@ -26,8 +26,14 @@ export class HomePage {
       state:{user: this.user.userName}
     };
 
-    if (this.user.userName == ""){
+    if (this.user.userName == "" || this.user.password == ""){
       this.show();
+    }
+    else if(this.user.password.length <= 8 ){
+      this.showPassLenghtMin()
+    }
+    else if(this.user.password.length >= 12 ){
+      this.showPassLenghtMax()
     }
     else{
       this.router.navigate(['/landing'], navigationExtras);
@@ -36,6 +42,12 @@ export class HomePage {
 
   show(){
     this.showData("Debe ingresar su nombre de usuario y contraseña");
+  }
+  showPassLenghtMin(){
+    this.showData("La contraseña debe tener al menos 8 caracteres")
+  }
+  showPassLenghtMax(){
+    this.showData("La contraseña debe tener al maximo 12 caracteres")
   }
 
   async showData(msg: string){
