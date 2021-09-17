@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { Animation, AnimationController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-pass-reset',
@@ -11,7 +11,15 @@ export class PassResetPage{
   user={
     userName:"",
   }
-  constructor(public toastController: ToastController, private router: Router) { }
+  constructor(public toastController: ToastController, private router: Router, private animationPassword: AnimationController) { 
+
+    const animationPsw: Animation = this.animationPassword.create()
+      .addElement(document.querySelector('#yelow'))
+      .iterations(Infinity)
+      .fromTo('transform', 'translateX(0px)', 'translateX(100px)')
+      .fromTo('opacity', '1', '0.2');
+
+  }
 
   ngOnInit() {
   }

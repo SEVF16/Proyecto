@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Animation, AnimationController } from '@ionic/angular';
 
 @Component({
   selector: 'app-landing',
@@ -10,8 +11,14 @@ export class LandingPage implements OnInit {
 
   userName: any;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private animationCtrl: AnimationController) {
     
+    const animation: Animation = this.animationCtrl.create()
+          .addElement(document.querySelector('#btn-asistencia'))
+          .iterations(Infinity)
+          .fromTo('transform', 'translateX(0px)', 'translateX(100px)')
+          .fromTo('opacity', '1', '0.2');
+
     this.activatedRoute.queryParams.subscribe(params => {
       if(this.router.getCurrentNavigation().extras.state){
         this.userName = this.router.getCurrentNavigation().extras.state.user;
@@ -20,7 +27,6 @@ export class LandingPage implements OnInit {
     });
     
    }
-
 
 
   ngOnInit() {
