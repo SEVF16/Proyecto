@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { Animation, AnimationController, ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -14,7 +14,14 @@ export class HomePage {
     password:""
   }
 
-  constructor(public toastController: ToastController, private router: Router) {}
+  constructor(public toastController: ToastController, private router: Router, private animationLogin: AnimationController) {
+    
+    const animationLgn: Animation = this.animationLogin.create()
+        .addElement(document.querySelector('#btn-asistencia'))
+        .iterations(Infinity)
+        .fromTo('transform', 'translateX(0px)', 'translateX(100px)')
+        .fromTo('opacity', '1', '0.2');
+  }
 
   ngOnInit() {
   }
