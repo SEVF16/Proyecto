@@ -31,10 +31,10 @@ export class HomePage {
     if (this.user.userName == "" || this.user.password == ""){
       this.show();
     }
-    else if(this.user.password.length <= 8 ){
+    else if(this.user.password.length < 8 ){
       this.showPassLenghtMin()
     }
-    else if(this.user.password.length >= 12 ){
+    else if(this.user.password.length > 12 ){
       this.showPassLenghtMax()
     }
     else{
