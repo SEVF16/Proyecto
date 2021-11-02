@@ -1,8 +1,8 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
 import { GetapiService } from './getapi.service';
+import { Animation, AnimationController, ToastController } from '@ionic/angular';
+
 
 
 @Component({
@@ -17,8 +17,14 @@ export class HomePage {
   }
   img: [];
   info: [];
-  constructor(public toastController: ToastController, private router: Router, private api: GetapiService) {
+ 
+constructor(public toastController: ToastController, private router: Router, private animationLogin: AnimationController, private api: GetapiService) {
     
+    const animationLgn: Animation = this.animationLogin.create()
+        .addElement(document.querySelector('#btn-asistencia'))
+        .iterations(Infinity)
+        .fromTo('transform', 'translateX(0px)', 'translateX(100px)')
+        .fromTo('opacity', '1', '0.2');
   }
 
 
@@ -42,8 +48,14 @@ export class HomePage {
       state:{user: this.user.userName}
     };
 
-    if (this.user.userName == ""){
+    if (this.user.userName == "" || this.user.password == ""){
       this.show();
+    }
+    else if(this.user.password.length <= 8 ){
+      this.showPassLenghtMin()
+    }
+    else if(this.user.password.length >= 12 ){
+      this.showPassLenghtMax()
     }
     else{
       this.router.navigate(['/landing'], navigationExtras);
@@ -52,6 +64,12 @@ export class HomePage {
 
   show(){
     this.showData("Debe ingresar su nombre de usuario y contraseña");
+  }
+  showPassLenghtMin(){
+    this.showData("La contraseña debe tener al menos 8 caracteres")
+  }
+  showPassLenghtMax(){
+    this.showData("La contraseña debe tener al maximo 12 caracteres")
   }
 
   async showData(msg: string){
