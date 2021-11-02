@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { GetseccionService } from './getseccion.service';
 
 @Component({
   selector: 'app-landing',
@@ -10,7 +11,7 @@ export class LandingPage implements OnInit {
 
   userName: any;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private api: GetseccionService ) {
     
     this.activatedRoute.queryParams.subscribe(params => {
       if(this.router.getCurrentNavigation().extras.state){
@@ -20,10 +21,14 @@ export class LandingPage implements OnInit {
     });
     
    }
-
+   seccion = [];
 
 
   ngOnInit() {
+    this.api.getSeccion().subscribe((data)=> {
+      this.seccion=data;
+      console.log(data);
+    });
   }
 
 }
