@@ -10,6 +10,7 @@ import { PassResetPage } from './pass-reset.page';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import {MatCardModule} from '@angular/material/card';
     PassResetPageRoutingModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    ComponentsModule
   ],
   declarations: [PassResetPage]
 })

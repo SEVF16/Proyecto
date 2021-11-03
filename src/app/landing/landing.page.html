@@ -1,26 +1,18 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-img  class="img2" src="https://img2.freepng.es/20180621/rov/kisspng-duoc-uc-logo-concepcin-central-academy-of-fine-a-duoc-5b2b29e55de220.5957473915295554293846.jpg"></ion-img>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>  
 
 <ion-content  [fullscreen]="true">
   <ion-card>
     <ion-card-header>        
-      <ion-card-title>Bienvenido: {{userName}}!</ion-card-title>      
+      <ion-card-title>Bienvenido {{userName}}!</ion-card-title>      
     </ion-card-header>
     <ion-card-content>
       <ion-text color="warning">
-        <h5>Revisa aquí tu asistencia</h5>
+        <h5>Registra aquí tu asistencia</h5>
       </ion-text>
       <ion-button color="secondary" shape="round" id="btn-asistencia" expand="block">Asistencia</ion-button>      
-      <img class="img3" src="https://lh3.googleusercontent.com/proxy/H-zvt0FI6iI6NTE8PRRuZx5qn194y-Ad5IkE0rXvzOxvm_JclWCbesLNpDLODtfyQ9E4ANPOvlyfbjyQk7WdKZrp9Vh9uKDJyzdjFRNDpSam-IRNYRGv-g6NbPEOA9Gjb0emxo3UXuccpdwMLme9fpRBoimPqRi4sIA-BVgi0YSj8Q" alt="">         
+      <img class="img3" src="https://www.duoc.cl/wp-content/uploads/2020/06/san-joaquin-730x563.jpg" alt="">         
     </ion-card-content>
   </ion-card>
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar>
-      <img class="img" src="http://www2.duoc.cl/proveedores/img/acreditado_1.jpg" alt="">
-  </ion-toolbar>
-</ion-footer>
+<app-footer></app-footer>
