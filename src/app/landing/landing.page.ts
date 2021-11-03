@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-<<<<<<< HEAD
+
 import { GetseccionService } from './getseccion.service';
-=======
+
 import { Animation, AnimationController } from '@ionic/angular';
->>>>>>> 44dc3ea1d1d82ab4a334466ad2dca116a43fff23
+
 
 @Component({
   selector: 'app-landing',
@@ -15,11 +15,10 @@ export class LandingPage implements OnInit {
 
   userName: any;
 
-<<<<<<< HEAD
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private api: GetseccionService ) {
-=======
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private animationCtrl: AnimationController) {
->>>>>>> 44dc3ea1d1d82ab4a334466ad2dca116a43fff23
+
+
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private animationCtrl: AnimationController, private api: GetseccionService ) {
+
     
     const animation: Animation = this.animationCtrl.create()
           .addElement(document.querySelector('#btn-asistencia'))

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { GetapiService } from './getapi.service';
-import { Animation, AnimationController, ToastController } from '@ionic/angular';
+import { Animation, AnimationController, NavController, ToastController } from '@ionic/angular';
 
 
 
@@ -18,7 +18,8 @@ export class HomePage {
   img: [];
   info: [];
  
-constructor(public toastController: ToastController, private router: Router, private animationLogin: AnimationController, private api: GetapiService) {
+constructor(public toastController: ToastController, private router: Router, private animationLogin: AnimationController, 
+  private api: GetapiService, public navCtrl: NavController) {
     
     const animationLgn: Animation = this.animationLogin.create()
         .addElement(document.querySelector('#btn-asistencia'))
@@ -58,7 +59,8 @@ constructor(public toastController: ToastController, private router: Router, pri
       this.showPassLenghtMax()
     }
     else{
-      this.router.navigate(['/landing'], navigationExtras);
+      localStorage.setItem('ingresado','true');
+      this.navCtrl.navigateRoot('landing');
     }    
   };
 

@@ -13,10 +13,10 @@ export class GetapiService {
       "Access-Control-Allow-Origin": "*"
     })
   };
-  // Api1 --- 8000
-  // Api2 --- 7000
-  // Api3 --- 6000
-  // Api4 --- 5000
+  // Api1 --- 8000 Imagen
+  // Api2 --- 7000 Ramos
+  // Api3 --- 9000 Descr
+  // Api4 --- 10000 Numero de contacto 
   URL = 'http://127.0.0.1:8000'
   URL2 = 'http://127.0.0.1:9000'
   
