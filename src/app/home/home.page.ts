@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { GetapiService } from './getapi.service';
-import { Animation, AnimationController, NavController, ToastController } from '@ionic/angular';
-
+import { Animation, AnimationController, ToastController, NavController} from '@ionic/angular';
+import { DataStorageService } from '../services/data-storage.service';
 
 
 @Component({
@@ -15,17 +15,19 @@ export class HomePage {
     userName:"",
     password:""
   }
+
   img: [];
   info: [];
  
-constructor(public toastController: ToastController, private router: Router, private animationLogin: AnimationController, 
-  private api: GetapiService, public navCtrl: NavController) {
-    
-    const animationLgn: Animation = this.animationLogin.create()
-        .addElement(document.querySelector('#btn-asistencia'))
-        .iterations(Infinity)
-        .fromTo('transform', 'translateX(0px)', 'translateX(100px)')
-        .fromTo('opacity', '1', '0.2');
+
+  asistance = {
+    fecha: "string",
+    presente: false
+  }
+
+  constructor(public toastController: ToastController, private router: Router, private animationLogin: AnimationController,
+              private dataStorageService: DataStorageService, private api: GetapiService, public navCtrl: NavController) {    
+
   }
 
 
@@ -41,6 +43,10 @@ constructor(public toastController: ToastController, private router: Router, pri
     });
   }
 
+  registrar(){
+    this.dataStorageService.registrarAsistencia(this.asistance.fecha, this.asistance.presente);
+  }
+
   recuperar(){
     this.router.navigate(['/pass-reset']);
   }
@@ -52,10 +58,10 @@ constructor(public toastController: ToastController, private router: Router, pri
     if (this.user.userName == "" || this.user.password == ""){
       this.show();
     }
-    else if(this.user.password.length <= 8 ){
+    else if(this.user.password.length < 8 ){
       this.showPassLenghtMin()
     }
-    else if(this.user.password.length >= 12 ){
+    else if(this.user.password.length > 12 ){
       this.showPassLenghtMax()
     }
     else{

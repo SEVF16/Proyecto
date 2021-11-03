@@ -20,19 +20,12 @@ export class LandingPage implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private animationCtrl: AnimationController, private api: GetseccionService ) {
 
     
-    const animation: Animation = this.animationCtrl.create()
-          .addElement(document.querySelector('#btn-asistencia'))
-          .iterations(Infinity)
-          .fromTo('transform', 'translateX(0px)', 'translateX(100px)')
-          .fromTo('opacity', '1', '0.2');
-
     this.activatedRoute.queryParams.subscribe(params => {
       if(this.router.getCurrentNavigation().extras.state){
         this.userName = this.router.getCurrentNavigation().extras.state.user;
         console.log(this.userName);
       }
-    });
-    
+    });    
    }
    seccion = [];
 

@@ -1,10 +1,7 @@
-<ion-header [translucent]="true" *ngFor ="let imgs of img">
-  <ion-toolbar *ngIf="imgs.idImagen === 1" >
-    <ion-img  class="img2" src="{{imgs.imagen}}"></ion-img>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>  
 
 <ion-content [fullscreen]="true">
+
   <mat-card class="cardpadding">
     <mat-card-header>
       <!--<div mat-card-avatar></div> -->
@@ -41,8 +38,5 @@
     </ion-col>
   </ion-row>    
 </ion-content>
-<ion-footer [fullscreen]="true" *ngFor ="let imgs of img">
-  <ion-toolbar *ngIf="imgs.idImagen === 21" >
-      <img class="img" src="{{imgs.imagen}}" alt="">
-  </ion-toolbar>
-</ion-footer>
+
+<app-footer></app-footer>
