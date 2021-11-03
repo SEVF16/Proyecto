@@ -18,10 +18,8 @@ export class LandingPage implements OnInit {
         this.userName = this.router.getCurrentNavigation().extras.state.user;
         console.log(this.userName);
       }
-    });
-    
+    });    
    }
-
 
   ngOnInit() {
   }

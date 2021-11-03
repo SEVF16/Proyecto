@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { Animation, AnimationController, ToastController } from '@ionic/angular';
+import { DataStorageService } from '../services/data-storage.service';
 
 
 @Component({
@@ -14,12 +15,23 @@ export class HomePage {
     password:""
   }
 
-  constructor(public toastController: ToastController, private router: Router, private animationLogin: AnimationController) {    
+  asistance = {
+    fecha: "string",
+    presente: false
+  }
+
+  constructor(public toastController: ToastController, private router: Router, private animationLogin: AnimationController,
+              private dataStorageService: DataStorageService) {    
 
   }
 
   ngOnInit() {
   }
+
+  registrar(){
+    this.dataStorageService.registrarAsistencia(this.asistance.fecha, this.asistance.presente);
+  }
+
   recuperar(){
     this.router.navigate(['/pass-reset']);
   }
