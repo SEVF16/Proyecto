@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetimgService } from '../getimg.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {}
+  constructor(private api: GetimgService) { }
+  imagenes:any;
+  ngOnInit() {this.api.getImg().subscribe((data)=> {
+    return this.imagenes=data;
+  });
+}
 
 }

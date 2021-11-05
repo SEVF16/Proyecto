@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { Animation, AnimationController, ToastController } from '@ionic/angular';
+import { GetapiService } from './getapi.service';
+import { Animation, AnimationController, ToastController, NavController, AlertController} from '@ionic/angular';
 import { DataStorageService } from '../services/data-storage.service';
+import { imagen } from '../interfaces/iusers';
+
+
 
 
 @Component({
@@ -13,7 +17,13 @@ export class HomePage {
   user={
     userName:"",
     password:""
+
+  
   }
+  
+
+  num:any;
+  info = [];
 
   asistance = {
     fecha: "string",
@@ -21,13 +31,49 @@ export class HomePage {
   }
 
   constructor(public toastController: ToastController, private router: Router, private animationLogin: AnimationController,
-              private dataStorageService: DataStorageService) {    
+              private dataStorageService: DataStorageService, private api: GetapiService, public navCtrl: NavController,private alerta: AlertController) {    
 
   }
+
 
   ngOnInit() {
-  }
 
+    this.api.getInfo().subscribe((data)=> {
+    this.info=data;
+    console.log(data)
+  });
+
+  this.api.getNum().subscribe((data)=> {
+    this.num=data;
+    console.log(data)
+  });
+  }
+  /*getImang(){
+    this.api.getImg().subscribe((data)=> {
+      return this.imagenes=data;
+    });
+
+  }*/
+  
+
+ /* getInf(){
+    this.api.getInfo().subscribe((data)=> {
+      return this.info=data;
+      
+       
+ 
+    });
+  }*/
+
+  async Info(){
+    
+    let miAlerta = await  this.alerta.create({
+      header: 'Informacion',
+      message: this.info[0].descripcion,
+      buttons: ['Entendido']
+    });
+    miAlerta.present();
+  }
   registrar(){
     this.dataStorageService.registrarAsistencia(this.asistance.fecha, this.asistance.presente);
   }
@@ -50,7 +96,8 @@ export class HomePage {
       this.showPassLenghtMax()
     }
     else{
-      this.router.navigate(['/landing'], navigationExtras);
+      localStorage.setItem('ingresado','true');
+      this.navCtrl.navigateRoot('landing');
     }    
   };
 

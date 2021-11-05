@@ -18,6 +18,9 @@ export class PassResetPage{
   ngOnInit() {
   }
 
+  retro(){
+    this.router.navigate(['/home']);
+  }
   recuperar() {
     let navigationExtras: NavigationExtras ={
       state:{user: this.user.userName}
