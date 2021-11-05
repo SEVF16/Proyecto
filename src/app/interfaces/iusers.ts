@@ -4,3 +4,11 @@ export interface IUsers {
     password: string;
 }
 
+export interface servimg{
+    imagenes: imagen[];
+}
+
+export interface imagen{
+    img: [];
+}
+

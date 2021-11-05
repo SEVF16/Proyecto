@@ -12,7 +12,7 @@ import { FooterComponent } from './footer/footer.component';
   FooterComponent],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
   ],
   exports: [
     HeaderComponent,

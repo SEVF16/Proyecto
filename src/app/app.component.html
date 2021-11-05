@@ -1,3 +1,19 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu menuId="main-menu" content-id="main" >
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>
+          <button mat-flat-button id="danger" color='primary' (click)="Cerrar()">Cerrar Seccion</button>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main">
+    
+  </ion-router-outlet>
 </ion-app>

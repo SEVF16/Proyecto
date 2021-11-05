@@ -1,4 +1,4 @@
-<app-header></app-header>  
+<app-header ></app-header>  
 
 <ion-content [fullscreen]="true">
 
@@ -36,7 +36,9 @@
     <ion-col size="12">      
       <a mat-stroked-button color="primary" (click)="recuperar()"  routerLinkActive="router-link-active" target="_blank">¿Olivaste tu contraseña?</a>   
     </ion-col>
-  </ion-row>    
-</ion-content>
+  </ion-row> 
+  <a mat-stroked-button color="red" (click)="Info()"  routerLinkActive="router-link-active" target="_blank">Informacion</a>
+  <a mat-stroked-button color="blue" *ngFor="let nume of num"  routerLinkActive="router-link-active" target="_blank">+56 {{nume.Numero}} </a>
+</ion-content> 
 
 <app-footer></app-footer>
