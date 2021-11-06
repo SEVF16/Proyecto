@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,4 +24,6 @@ export class GetseccionService {
     return this.http.get(this.URL+'/api/seccion/');
   }
   constructor(private http:HttpClient){}
+
+
 }

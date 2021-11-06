@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicStorageModule} from '@ionic/storage-angular';
 import { ComponentsModule } from './components/components.module';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+
+
 
 
 @NgModule({
@@ -21,10 +24,18 @@ import { ComponentsModule } from './components/components.module';
     BrowserAnimationsModule, 
     IonicStorageModule.forRoot(),
     ComponentsModule,
+<<<<<<< HEAD
+    HttpClientModule,
+
+    
+    
+
+=======
     HttpClientModule
+>>>>>>> 54a88b47563ba1c700b51eb77dbc09c914493be9
   ],
-  providers: [{ 
-    provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [ { 
+    provide: RouteReuseStrategy, useClass: IonicRouteStrategy, }, BarcodeScanner],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

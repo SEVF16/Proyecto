@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { GetseccionService } from './getseccion.service';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 import { Animation, AnimationController } from '@ionic/angular';
 
@@ -15,7 +16,9 @@ export class LandingPage implements OnInit {
 
   userName: any;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private animationCtrl: AnimationController, private api: GetseccionService ) {
+
+
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private animationCtrl: AnimationController, private api: GetseccionService, private barcodeScanner: BarcodeScanner) {
 
     
     this.activatedRoute.queryParams.subscribe(params => {
@@ -33,5 +36,14 @@ export class LandingPage implements OnInit {
       console.log(data);
     });
   }
-
+  codigo: any; 
+  scan(){
+    this.barcodeScanner.scan().then(barcodeData => {
+      
+      this.codigo = barcodeData.text;
+      console.log('Barcode data', this.codigo);
+     }).catch(err => {
+         console.log('Error', err);
+     });
+  }
 }
