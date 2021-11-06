@@ -16,11 +16,8 @@ import { imagen } from '../interfaces/iusers';
 export class HomePage {
   user={
     userName:"",
-    password:""
-
-  
-  }
-  
+    password:""  
+  }  
 
   num:any;
   info = [];
@@ -81,6 +78,9 @@ export class HomePage {
   recuperar(){
     this.router.navigate(['/pass-reset']);
   }
+  registro(){
+    this.router.navigate(['/registro']);
+  }
   ingresar() {
     let navigationExtras: NavigationExtras ={
       state:{user: this.user.userName}
@@ -88,27 +88,18 @@ export class HomePage {
 
     if (this.user.userName == "" || this.user.password == ""){
       this.show();
-    }
-    else if(this.user.password.length < 8 ){
-      this.showPassLenghtMin()
-    }
-    else if(this.user.password.length > 12 ){
-      this.showPassLenghtMax()
-    }
-    else{
-      localStorage.setItem('ingresado','true');
-      this.navCtrl.navigateRoot('landing');
+    } else {
+      if(!this.dataStorageService.findUser(this.user.userName)){
+
+      }else{
+        localStorage.setItem('ingresado','true');
+        this.navCtrl.navigateRoot('landing', navigationExtras); 
+      }     
     }    
   };
 
   show(){
     this.showData("Debe ingresar su nombre de usuario y contraseña");
-  }
-  showPassLenghtMin(){
-    this.showData("La contraseña debe tener al menos 8 caracteres")
-  }
-  showPassLenghtMax(){
-    this.showData("La contraseña debe tener al maximo 12 caracteres")
   }
 
   async showData(msg: string){
