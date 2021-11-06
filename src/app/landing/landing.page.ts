@@ -15,8 +15,6 @@ export class LandingPage implements OnInit {
 
   userName: any;
 
-
-
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private animationCtrl: AnimationController, private api: GetseccionService ) {
 
     

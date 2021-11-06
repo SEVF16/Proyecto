@@ -21,9 +21,7 @@ import { ComponentsModule } from './components/components.module';
     BrowserAnimationsModule, 
     IonicStorageModule.forRoot(),
     ComponentsModule,
-    HttpClientModule,
-    
-
+    HttpClientModule
   ],
   providers: [{ 
     provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
