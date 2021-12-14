@@ -23,9 +23,15 @@ const routes: Routes = [
     path: 'pass-reset',
     loadChildren: () => import('./pass-reset/pass-reset.module').then( m => m.PassResetPageModule),
     canActivate: [NoIngresadoGuard]
-  },  {
+  },
+  {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate: [NoIngresadoGuard]
   },
 
 

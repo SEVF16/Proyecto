@@ -89,7 +89,7 @@ export class HomePage {
     if (this.user.userName == "" || this.user.password == ""){
       this.show();
     } else {
-      if(!this.dataStorageService.findUser(this.user.userName)){
+      if(!this.dataStorageService.findUser(this.user.userName, this.user.password)){
 
       }else{
         localStorage.setItem('ingresado','true');
