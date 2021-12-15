@@ -44,10 +44,10 @@ export class DataStorageService {
     }
   }
 
-  findUser(nombreUsuario: string){
-    const existe = this.users.find(u => u.userName === nombreUsuario);
+  findUser(nombreUsuario: string, password: string){
+    const existe = this.users.find(u => u.userName === nombreUsuario && u.password === password );
     if(!existe) {      
-      this.presentToast("Usuario no registrado");
+      this.presentToast("Usuario no registrado o contraseña incorrecta");
     } 
     return existe;    
   }

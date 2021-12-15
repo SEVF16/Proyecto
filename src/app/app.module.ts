@@ -24,15 +24,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
     BrowserAnimationsModule, 
     IonicStorageModule.forRoot(),
     ComponentsModule,
-<<<<<<< HEAD
-    HttpClientModule,
-
-    
-    
-
-=======
     HttpClientModule
->>>>>>> 54a88b47563ba1c700b51eb77dbc09c914493be9
   ],
   providers: [ { 
     provide: RouteReuseStrategy, useClass: IonicRouteStrategy, }, BarcodeScanner],
