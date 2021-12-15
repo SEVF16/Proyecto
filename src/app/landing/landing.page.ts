@@ -5,6 +5,7 @@ import { GetseccionService } from './getseccion.service';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 import { Animation, AnimationController } from '@ionic/angular';
+import { DataStorageService } from '../services/data-storage.service';
 
 
 @Component({
@@ -15,10 +16,12 @@ import { Animation, AnimationController } from '@ionic/angular';
 export class LandingPage implements OnInit {
 
   userName: any;
+  codigo: string;
+  decodificado: any;
 
 
-
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private animationCtrl: AnimationController, private api: GetseccionService, private barcodeScanner: BarcodeScanner) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private animationCtrl: AnimationController,
+     private api: GetseccionService, private barcodeScanner: BarcodeScanner, private dataStorage: DataStorageService) {
 
     
     this.activatedRoute.queryParams.subscribe(params => {
@@ -36,7 +39,7 @@ export class LandingPage implements OnInit {
       console.log(data);
     });
   }
-  codigo: any; 
+
   scan(){
     this.barcodeScanner.scan().then(barcodeData => {
       
@@ -45,5 +48,9 @@ export class LandingPage implements OnInit {
      }).catch(err => {
          console.log('Error', err);
      });
+
+     this.dataStorage.register(this.codigo);
   }
+
+
 }

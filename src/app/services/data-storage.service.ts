@@ -44,30 +44,18 @@ export class DataStorageService {
     }
   }
 
+  register(registro: string){
+    this.asistencia.unshift({registro: registro});
+    this._storage.set('asistencia', this.asistencia);
+    this.presentToast("Registro exitoso");
+  }
+
   findUser(nombreUsuario: string, password: string){
     const existe = this.users.find(u => u.userName === nombreUsuario && u.password === password );
     if(!existe) {      
       this.presentToast("Usuario no registrado o contraseña incorrecta");
     } 
     return existe;    
-  }
-
-  async cargarAsistencia(){
-    const registroAsistencia = await this.storage.get('asistencia');
-    if(registroAsistencia){
-      this.asistencia = registroAsistencia;
-    }
-  }
-
-  registrarAsistencia(fecha:string, presente:boolean){
-    const exists = this.asistencia.find(a => a.strFecha === fecha);
-    if(!exists){
-      this.asistencia.unshift({strFecha: fecha, presente: true});
-      this.storage.set('asistencia', this.asistencia);
-      this.presentToast('Asistencia registrada')
-    }else {
-      this.presentToast(`Error: La asistencia para el día ${fecha} ha sido registrada anteriormente`)
-    }
   }
 
   async presentToast(msg: string){

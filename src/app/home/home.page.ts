@@ -71,9 +71,6 @@ export class HomePage {
     });
     miAlerta.present();
   }
-  registrar(){
-    this.dataStorageService.registrarAsistencia(this.asistance.fecha, this.asistance.presente);
-  }
 
   recuperar(){
     this.router.navigate(['/pass-reset']);
