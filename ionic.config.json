@@ -1,9 +1,7 @@
 {
   "name": "miApp",
   "integrations": {
-    "capacitor": {
-      "enabled": false
-    }
+    "capacitor": {}
   },
   "type": "angular"
 }

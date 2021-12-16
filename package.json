@@ -31,6 +31,7 @@
     "@ionic-native/barcode-scanner": "^5.36.0",
     "@ionic-native/camera": "^5.36.0",
     "@ionic-native/core": "^5.36.0",
+    "@ionic-native/email-composer": "^5.36.0",
     "@ionic/angular": "^5.5.2",
     "@ionic/pwa-elements": "^3.0.2",
     "@ionic/storage": "^3.0.6",

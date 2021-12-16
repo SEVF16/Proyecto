@@ -17,7 +17,7 @@ export class LandingPage implements OnInit {
 
   userName: any;
   codigo: string;
-  decodificado: any;
+  decodificado: any;  
 
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private animationCtrl: AnimationController,
@@ -44,11 +44,11 @@ export class LandingPage implements OnInit {
     this.barcodeScanner.scan().then(barcodeData => {
       
       this.codigo = barcodeData.text;
-      console.log('Barcode data', this.codigo);
+      console.log('Barcode data', this.codigo);      
      }).catch(err => {
          console.log('Error', err);
      });
-
+    
      this.dataStorage.register(this.codigo);
   }
 

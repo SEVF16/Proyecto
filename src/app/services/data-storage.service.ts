@@ -13,7 +13,8 @@ export class DataStorageService {
 
   asistencia: IAsistencia[]=[];
   users: IUsers[]=[];
-  
+  flag: boolean;
+
   private _storage: Storage | null = null;
 
   constructor(private storage: Storage, public toastController: ToastController) {
@@ -44,10 +45,10 @@ export class DataStorageService {
     }
   }
 
-  register(registro: string){
+  async register(registro: string){
     this.asistencia.unshift({registro: registro});
-    this._storage.set('asistencia', this.asistencia);
-    this.presentToast("Registro exitoso");
+    this._storage.set('asistencia', this.asistencia);  
+    await this.presentToast("Registro exitoso");
   }
 
   findUser(nombreUsuario: string, password: string){

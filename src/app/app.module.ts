@@ -15,6 +15,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -26,8 +27,9 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
     ComponentsModule,
     HttpClientModule
   ],
-  providers: [ { 
-    provide: RouteReuseStrategy, useClass: IonicRouteStrategy, }, BarcodeScanner],
+  providers: [ 
+    { 
+    provide: RouteReuseStrategy, useClass: IonicRouteStrategy,  }, BarcodeScanner],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
